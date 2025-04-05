@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Ticket - Intranet</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-texto">LOGO</span>
+    </div>
+    <div class="nomeIntra">Empresa Intranet</div>
+    <nav class="nav-opcoes">
+      <ul>
+        <li><a href="/html/menu.html">Menu</a></li>
+        <li><a href="#">Tickets</a></li>
+        <li><a href="#">Lista Pendente</a></li>
+        <li><a href="#">Status dos Tickets</a></li>
+        <li><a href="#">Tickets Pendentes</a></li>
+        <li>
+          <a href="https://wa.me/5581999999999" target="_blank">Entre em Contato</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="ticket-section">
+      <h2>Novo Ticket</h2>
+      <p>Preencha as informações para criar um novo ticket.</p>
+      <form action="#" method="post" enctype="multipart/form-data">
+        <div class="inputs">
+          <label for="nome">Nome</label>
+          <input 
+            type="text" 
+            id="nome" 
+            name="nome" 
+            placeholder="Por favor informe seu nome"
+            required>
+        </div>
+
+        <div class="inputs">
+          <label for="email">Endereço de e-mail</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Por favor informe seu e-mail"
+            required>
+        </div>
+
+        <div class="inputs">
+          <label for="categoria">Categoria</label>
+          <select id="categoria" name="categoria" required>
+            <option value="" disabled selected>Por favor selecione a categoria</option>
+            <option value="suporte">Suporte</option>
+            <option value="financeiro">Financeiro</option>
+            <option value="administrativo">Administrativo</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+
+        <div class="inputs">
+          <label for="assunto">Assunto</label>
+          <input 
+            type="text" 
+            id="assunto" 
+            name="assunto" 
+            placeholder="Informe o assunto da sua solicitação"
+            required>
+        </div>
+
+        <div class="inputs">
+          <label for="descricao">Descrição</label>
+          <textarea 
+            id="descricao" 
+            name="descricao" 
+            rows="5" 
+            placeholder="Informe a descrição da sua solicitação"
+            required
+          ></textarea>
+        </div>
+
+        <div class="inputs">
+          <label for="anexo">Anexar arquivo (opcional)</label>
+          <input 
+            type="file" 
+            id="anexo" 
+            name="anexo"
+            accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+        </div>
+
+        <div class="botao">
+          <button type="submit">Enviar Ticket</button>
+          <button type="reset">Redefinir Formulário</button>
+        </div>
+
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>
