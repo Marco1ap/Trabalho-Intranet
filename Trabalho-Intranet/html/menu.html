@@ -1,72 +1,164 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu - Intranet</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Menu do Cliente</title>
+  <link rel="stylesheet" href="../css/menu.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    .menu-usuario {
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      z-index: 10;
+      color: #00d9f5;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .dropdown-conta {
+      position: absolute;
+      top: 35px;
+      right: 0;
+      background-color: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      min-width: 140px;
+      display: none;
+    }
+
+    .dropdown-conta button {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      padding: 5px 10px;
+      transition: background 0.3s ease;
+    }
+
+    .dropdown-conta button:hover {
+      background-color: #3a3a3a;
+    }
+
+    .menu-usuario:hover .dropdown-conta {
+      display: block;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="cliente-menu">
 
-  <header class="navbar">
-    <div class="logo">
-      <span class="logo-texto">LOGO</span>
+    <h1 id="tituloPagina" class="efeito-intranet">Intranet Ticket</h1>
+
+    <div class="botoes-centrais">
+      <button onclick="mostrarFormulario()">Abrir Ticket</button>
+      <button onclick="mostrarListaTickets()">Acompanhar meus Tickets</button>
     </div>
-    <di
-    
-    v class="nomeIntra">Empresa Intranet</div>
-    <nav class="nav-opcoes">
-      <ul>
-        <li><a href="#">Tickets</a></li>
-        <li><a href="#">Lista Pendente</a></li>
-        <li><a href="/html/novo_ticket.html">Enviar Ticket</a></li>
-        <li><a href="#">Status dos Tickets</a></li>
-        <li><a href="#">Tickets Pendentes</a></li>
-        <li>
-          <a href="https://wa.me/5581999999999" target="_blank">Entre em Contato</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
 
-  <main class="main-content">
-    <section class="welcome-section">
-      <h2>Bem-vindo(a) à Intranet</h2>
-      <p>
-        Aqui você pode gerenciar tickets, acompanhar pendências, criar solicitações
-        e acessar recursos internos da empresa.
-      </p>
-    </section>
-
-    <section class="info-panels">
-
-      <div class="panel">
-        <h3>Avisos Importantes</h3>
-        <ul>
-          <li>Manutenção no servidor dia 25/03</li>
-          <li>Reunião geral na segunda-feira, às 9h</li>
-          <li>Nova política de segurança de dados</li>
-        </ul>
+    <!-- formulário do ticket (criação) -->
+    <div id="formularioTicket" class="form-ticket oculto">
+      <input type="text" placeholder="Assunto">
+      <textarea rows="4" placeholder="Conteúdo"></textarea>
+      <div class="botoes-formulario">
+        <button onclick="enviarTicket()">Enviar</button>
+        <button onclick="voltarMenu()">Voltar</button>
       </div>
+    </div>
 
-      <div class="panel">
-        <h3>Estatísticas de Tickets</h3>
-        <p><strong>Abertos:</strong> 12</p>
-        <p><strong>Em andamento:</strong> 5</p>
-        <p><strong>Fechados:</strong> 30</p>
+    <!-- lista de tickets -->
+    <div id="listaTickets" class="lista-tickets oculto">
+      <div class="ticket-item">
+        <div class="ticket-info">
+          <span>08/04/2025</span>
+          <span class="ticket-status">Ticket Pendente</span>
+        </div>
+        <button onclick="verDetalhes('08/04/2025', 'Ticket Pendente', 'Conteúdo do ticket pendente...', 'Aguardando resposta')">Ver Detalhes</button>
       </div>
-
-      <div class="panel">
-        <h3>Links Úteis</h3>
-        <ul>
-          <li><a href="#">Manual de Uso da Intranet</a></li>
-          <li><a href="#">Política de Segurança</a></li>
-          <li><a href="#">FAQ de TI</a></li>
-        </ul>
+      <div class="ticket-item">
+        <div class="ticket-info">
+          <span>14/02/2025</span>
+          <span class="ticket-status">Ticket Respondido</span>
+        </div>
+        <button onclick="verDetalhes('14/02/2025', 'Ticket Respondido', 'Conteúdo do ticket respondido...', 'Resposta do suporte')">Ver Detalhes</button>
       </div>
-      
-    </section>
-  </main>
+      <div class="ticket-item">
+        <div class="ticket-info">
+          <span>10/03/2025</span>
+          <span class="ticket-status">Ticket Finalizado</span>
+        </div>
+        <button onclick="verDetalhes('10/03/2025', 'Ticket Finalizado', 'Conteúdo do ticket finalizado...', 'Problema resolvido.')">Ver Detalhes</button>
+      </div>
+      <div class="botoes-formulario">
+        <button onclick="voltarMenu()">Voltar</button>
+      </div>
+    </div>
+  </div>
 
+  <!-- modal de detalhes -->
+  <div id="modalDetalhes" class="modal-detalhes oculto">
+    <div class="modal-conteudo">
+      <h3 id="modalData"></h3>
+      <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+      <p><strong>Conteúdo:</strong> <span id="modalConteudo"></span></p>
+      <p><strong>Resposta:</strong> <span id="modalResposta"></span></p>
+      <button onclick="fecharModal()">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    function mostrarFormulario() {
+      document.getElementById('formularioTicket').classList.remove('oculto');
+      document.getElementById('listaTickets').classList.add('oculto');
+      document.querySelector('.botoes-centrais').classList.add('oculto');
+      document.getElementById('tituloPagina').innerText = 'Intranet Ticket';
+    }
+
+    function mostrarListaTickets() {
+      document.getElementById('listaTickets').classList.remove('oculto');
+      document.getElementById('formularioTicket').classList.add('oculto');
+      document.querySelector('.botoes-centrais').classList.add('oculto');
+      document.getElementById('tituloPagina').innerText = 'Meus Tickets';
+    }
+
+    function voltarMenu() {
+      document.getElementById('formularioTicket').classList.add('oculto');
+      document.getElementById('listaTickets').classList.add('oculto');
+      document.querySelector('.botoes-centrais').classList.remove('oculto');
+      document.getElementById('tituloPagina').innerText = 'Intranet Ticket';
+    }
+
+    function verDetalhes(data, status, conteudo, resposta) {
+      document.getElementById('modalData').innerText = data;
+      document.getElementById('modalStatus').innerText = status;
+      document.getElementById('modalConteudo').innerText = conteudo;
+      document.getElementById('modalResposta').innerText = resposta;
+      document.getElementById('modalDetalhes').classList.remove('oculto');
+    }
+
+    function fecharModal() {
+      document.getElementById('modalDetalhes').classList.add('oculto');
+    }
+
+    function enviarTicket() {
+      alert("Ticket enviado (simulação)");
+      voltarMenu();
+    }
+
+    function logout() {
+      alert("Você foi deslogado com sucesso!");
+      window.location.href = "/login"; // ajuste o caminho se necessário
+    }
+  </script>
 </body>
+
 </html>
