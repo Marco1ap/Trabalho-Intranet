@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zylo Intranet — Novo Ticket</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="menu.html" class="brand">
+          <img src="Zylo.png" alt="Zylo Logo" class="logo">
+        </a>
+        <ul class="nav-links"> 
+            <li>
+                <a href="status_ticket.html">Status de Tickets</a>
+            </li>
+            <li>
+                <a href="https://wa.me/5581999999999" target="_blank">Entre em Contato</a>
+            </li>
+        </ul>
+        <div class="sla">
+          <li class="perfil"><a href="perfil.html">Perfil</a></li>
+          <li class="sair"><a href="#">Sair</a></li>
+        </div>
+      </nav>
+      
+  </nav>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <ul>
+        <li><a href="menu.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="enviar_ticket.html" class="active"><i class="bx bx-send"></i> <span>Novo Ticket</span></a></li>
+        <li><a href="status_ticket.html"><i class="bx bx-list-check"></i> <span>Status de Tickets</span></a></li>
+        <li><a href="#"><i class="bx bx-calendar"></i> <span>Calendário</span></a></li>
+        <li><a href="#"><i class="bx bx-cog"></i> <span>Configurações</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="menu-main">
+      <section class="welcome-widget">
+        <h2>Novo Ticket</h2>
+        <p>Preencha as informações para criar seu chamado.</p>
+      </section>
+
+      <section class="widget form-widget">
+        <form action="#" method="post" enctype="multipart/form-data">
+
+          <div class="input-box">
+            <input type="text" name="nome" id="nome" placeholder=" " required>
+            <label for="nome">Nome</label>
+            <i class="bx bxs-user"></i>
+          </div>
+
+          <div class="input-box">
+            <input type="email" name="email" id="email" placeholder=" " required>
+            <label for="email">E-mail</label>
+            <i class="bx bxs-envelope"></i>
+          </div>
+
+          <div class="input-box">
+            <select name="categoria" id="categoria" required>
+              <option value="" disabled selected>Selecione a categoria</option>
+              <option value="suporte">Suporte</option>
+              <option value="financeiro">Financeiro</option>
+              <option value="administrativo">Administrativo</option>
+              <option value="outros">Outros</option>
+            </select>
+            <label class="static-label" for="categoria">Categoria</label>
+            <i class="bx bx-list-ul"></i>
+          </div>
+
+          <div class="input-box">
+            <input type="text" name="assunto" id="assunto" placeholder=" " required>
+            <label for="assunto">Assunto</label>
+            <i class="bx bx-edit"></i>
+          </div>
+
+          <div class="input-box textarea-box">
+            <textarea name="descricao" id="descricao" placeholder=" " rows="4" required></textarea>
+            <label for="descricao">Descrição</label>
+            <i class="bx bx-comment-detail"></i>
+          </div>
+
+          <div class="input-box">
+            <input type="file" name="anexo" id="anexo" accept=".pdf,.doc,.docx,.png,.jpg" >
+            <label for="anexo">Anexar arquivo (opcional)</label>
+            <i class="bx bx-paperclip"></i>
+          </div>
+
+          <div class="button-container">
+            <button type="submit">Enviar Ticket</button>
+            <button type="reset">Redefinir</button>
+          </div>
+
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+
+    document.querySelector('.sidebar-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('sidebar-collapsed');
+    });
+  </script>
+</body>
+</html>

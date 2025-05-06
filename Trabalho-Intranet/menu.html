@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zylo Intranet — Menu</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="menu.html" class="brand">
+      <img src="Zylo.png" alt="Zylo Logo" class="logo">
+    </a>
+    <ul class="nav-links">
+      <li class="dropdown">
+        <a href="#">Tickets <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="enviar_ticket.html">Enviar ticket</a></li>
+          <li><a href="status_ticket.html">Status do ticket</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://wa.me/5581999999999" target="_blank">Entre em Contato</a>
+      </li>
+    </ul>
+    <div class="sla">
+      <li class="perfil"><a href="perfil.html">Perfil</a></li>
+      <li class="sair"><a href="#">Sair</a></li>
+    </div>
+  </nav>
+
+  <div class="layout">
+    
+    <aside class="sidebar">
+      <ul>
+        <li><a href="menu.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="enviar_ticket.html" class="active"><i class="bx bx-send"></i> <span>Novo Ticket</span></a></li>
+        <li><a href="status_ticket.html"><i class="bx bx-list-check"></i> <span>Status de Tickets</span></a></li>
+        <li><a href="#"><i class="bx bx-calendar"></i> <span>Calendário</span></a></li>
+        <li><a href="#"><i class="bx bx-cog"></i> <span>Configurações</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="menu-main">
+      <section class="welcome-widget">
+        <h2>Bem-vindo(a), Usuário!</h2>
+        <p>Hoje é dia: <span id="current-date"></span>. Aqui você pode gerenciar tickets,
+          acompanhar pendências, criar solicitações e acessar recursos internos da empresa.
+        </p>
+      </section>
+
+      <section class="widgets">
+        <div class="widget news-widget">
+          <h3>Últimas Notícias</h3>
+          <ul>
+            <li><a href="#">Manutenção no servidor dia 25/06</a></li>
+            <li><a href="#">Reunião geral na proxima segunda-feira, às 9h</a></li>
+            <li><a href="#">Nova política de segurança de dados</a></li>
+          </ul>
+        </div>
+
+        <div class="widget events-widget">
+          <h3>Estatísticas de Tickets</h3>
+          <ul>
+            <li><strong>Abertos:</strong> <a href="#">12</a></li>
+            <li><strong>Em andamento:</strong> <a href="#">5</a></li>
+            <li><strong>Fechados:</strong> <a href="#">30</a></li>
+          </ul>
+        </div>
+
+        <div class="widget apps-widget">
+          <h3>Links Úteis</h3>
+          <div class="app-links">
+            <ul>
+              <li><a href="#">Manual de Uso da Intranet</a></li>
+              <li><a href="#">Política de Segurança</a></li>
+              <li><a href="#">FAQ de TI</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
