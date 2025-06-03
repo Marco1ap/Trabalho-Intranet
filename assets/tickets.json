@@ -1,0 +1,5 @@
+[
+    { "id": "001", "title": "Ticket 001", "description": "Erro ao acessar o sistema.", "status": "Pendente" },
+    { "id": "002", "title": "Ticket 002", "description": "Atualização de dados do usuário.", "status": "Em Andamento" },
+    { "id": "003", "title": "Ticket 003", "description": "Solicitação de nova senha.", "status": "Concluído" }
+  ]
