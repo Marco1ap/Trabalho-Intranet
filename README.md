@@ -5,35 +5,36 @@ Este projeto é um sistema de Intranet fictício da empresa **Zylo**, desenvolvi
 ---
 
 ## 📑 Sumário
-- [Funcionalidades](#funcionalidades)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Documentação Técnica](#documentação-técnica)
-- [Manual de Utilização](#manual-de-utilização)
-- [Equipe](#equipe)
-- [Licença](#licença)
+
+* [Funcionalidades](#funcionalidades)
+* [Estrutura do Projeto](#estrutura-do-projeto)
+* [Documentação Técnica](#documentação-técnica)
+* [Manual de Utilização](#manual-de-utilização)
+* [Equipe](#equipe)
+* [Licença](#licença)
 
 ---
 
 ## Funcionalidades
 
-- 🔐 Sistema de login e registro de usuários (autenticação real)
-- 🎫 Cadastro de tickets de atendimento
-- 📋 Listagem de todos os tickets
-- ✏️ Edição de status e categoria dos tickets
-- 🗑️ Exclusão de tickets
-- 📊 Página de dashboard com estatísticas dinâmicas
-- 🎨 Layout responsivo com tema escuro
-- ✅ Implementado o que foi exigido:
-  - CRUD completo
-  - Lista dinâmica (PHP: array de tickets)
-  - Estrutura de repetição (`while`)
-  - Estrutura de decisão (`if / else if / else`)
+* 🔐 Sistema de login e registro de usuários (autenticação real)
+* 🎫 Cadastro de tickets de atendimento
+* 📋 Listagem de todos os tickets
+* ✏️ Edição de status e categoria dos tickets
+* 🗑️ Exclusão de tickets
+* 📊 Página de dashboard com estatísticas dinâmicas
+* 🎨 Layout responsivo com tema escuro
+* ✅ Implementado o que foi exigido:
+  * CRUD completo
+  * Lista dinâmica (PHP: array de tickets)
+  * Estrutura de repetição (`while`)
+  * Estrutura de decisão (`if / else if / else`)
 
 ---
 
 ## Estrutura do Projeto
 
-```
+```notepad
 backend/
   db.php           # Conexão e inicialização do banco SQLite (tickets e usuários)
   tickets.php      # Endpoints CRUD para tickets (API)
@@ -66,66 +67,76 @@ pages/
 ## Documentação Técnica
 
 ### Backend (PHP + SQLite)
-- O backend expõe endpoints RESTful em `backend/tickets.php` para CRUD de tickets.
-- O banco de dados é SQLite, criado automaticamente em `backend/intranet.sqlite`.
-- Tabelas:
-  - `tickets`: chamados de atendimento
-  - `usuarios`: autenticação de usuários (login/registro)
-- Endpoints:
-  - `tickets.php`: CRUD de tickets
-  - `stats.php`: estatísticas de tickets
-  - `login.php`: login de usuário (POST JSON: email/username + senha)
-  - `register.php`: registro de usuário (POST JSON: username, email, senha)
-- Estruturas didáticas:
-  - **Lista dinâmica**: array `$tickets[]` preenchido no backend
-  - **Repetição**: `while` para percorrer resultados do banco
-  - **Decisão**: `if / else if / else` para status customizado
+
+* O backend expõe endpoints RESTful em `backend/tickets.php` para CRUD de tickets.
+* O banco de dados é SQLite, criado automaticamente em `backend/intranet.sqlite`.
+* Tabelas:
+  * `tickets`: chamados de atendimento
+  * `usuarios`: autenticação de usuários (login/registro)
+* Endpoints:
+  * `tickets.php`: CRUD de tickets
+  * `stats.php`: estatísticas de tickets
+  * `login.php`: login de usuário (POST JSON: email/username + senha)
+  * `register.php`: registro de usuário (POST JSON: username, email, senha)
+* Estruturas didáticas:
+  * **Lista dinâmica**: array `$tickets[]` preenchido no backend
+  * **Repetição**: `while` para percorrer resultados do banco
+  * **Decisão**: `if / else if / else` para status customizado
 
 ### Frontend
-- Layout responsivo, tema escuro, componentes reutilizáveis (NavBar, SideBar).
-- Formulários de login, registro e tickets usam floating label, ícones e feedback visual moderno.
-- Listagem de tickets permite editar (modal) e excluir tickets, com atualização dinâmica.
-- Estatísticas do menu são atualizadas automaticamente via fetch do backend.
-- Autenticação real: login e registro comunicam com backend, exibem erros e redirecionam.
+
+* Layout responsivo, tema escuro, componentes reutilizáveis (NavBar, SideBar).
+* Formulários de login, registro e tickets usam floating label, ícones e feedback visual moderno.
+* Listagem de tickets permite editar (modal) e excluir tickets, com atualização dinâmica.
+* Estatísticas do menu são atualizadas automaticamente via fetch do backend.
+* Autenticação real: login e registro comunicam com backend, exibem erros e redirecionam.
 
 ---
 
 ## Manual de Utilização
 
 ### 1. Requisitos
-- PHP 7.4+
-- Extensão PDO SQLite habilitada
-- Navegador moderno
+
+* PHP 7.4+
+* Extensão PDO SQLite habilitada
+* Navegador moderno
 
 ### 2. Instalação e Execução
+
 1. Clone ou extraia o projeto em seu servidor local (ex: XAMPP, WAMP, PHP embutido).
 2. Certifique-se de que a extensão PDO SQLite está habilitada no `php.ini`.
 3. Acesse a pasta do projeto e rode:
-   ```bash
-   php -S localhost:8080 -t .
-   ```
+
+  ```bash
+  php -S localhost:8080 -t .
+  ```
+
 4. Acesse `http://localhost:8080/pages/login.html` no navegador.
 
 ### 3. Fluxo de Uso
-- **Registro:** Crie uma conta em "Registrar-se".
-- **Login:** Acesse com seu usuário ou email e senha cadastrados.
-- **Menu:** Veja estatísticas dinâmicas de tickets.
-- **Novo Ticket:** Clique em "Novo Ticket" no menu lateral, preencha o formulário e envie.
-- **Listar/Editar/Excluir:** Acesse "Meus Tickets" para visualizar, editar (modal) ou excluir tickets.
-- **Dashboard:** Estatísticas são atualizadas automaticamente.
+
+* **Registro:** Crie uma conta em "Registrar-se".
+* **Login:** Acesse com seu usuário ou email e senha cadastrados.
+* **Menu:** Veja estatísticas dinâmicas de tickets.
+* **Novo Ticket:** Clique em "Novo Ticket" no menu lateral, preencha o formulário e envie.
+* **Listar/Editar/Excluir:** Acesse "Meus Tickets" para visualizar, editar (modal) ou excluir tickets.
+* **Dashboard:** Estatísticas são atualizadas automaticamente.
 
 ### 4. Observações
-- O sistema implementa autenticação real (login/registro).
-- Não há upload de arquivos/anexos.
-- O banco SQLite é criado e gerenciado automaticamente.
-- O código é modularizado para fácil manutenção.
+
+* O sistema implementa autenticação real (login/registro).
+* Não há upload de arquivos/anexos.
+* O banco SQLite é criado e gerenciado automaticamente.
+* O código é modularizado para fácil manutenção.
 
 ---
 
 ## Equipe
-- 202306074043 - Samuel Guilerme Ferreira Dias
+
+* 202306074043 - Samuel Guilerme Ferreira Dias
 
 ---
 
 ## Licença
+
 MIT
