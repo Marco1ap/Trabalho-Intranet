@@ -1,8 +1,8 @@
 const sidebarHTML = `
     <ul>
-        <li><a href="menu.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="enviar_ticket.html" class="active"><i class="bx bx-send"></i> <span>Novo Ticket</span></a></li>
-        <li><a href="tickets.html"><i class="bx bx-list-check"></i> <span>Meus Tickets</span></a></li>
+        <li><a href="menu.php"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="enviar_ticket.php" class="active"><i class="bx bx-send"></i> <span>Novo Ticket</span></a></li>
+        <li><a href="tickets.php"><i class="bx bx-list-check"></i> <span>Meus Tickets</span></a></li>
       </ul>
         `;
 

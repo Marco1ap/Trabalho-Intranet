@@ -1,0 +1,195 @@
+@import './base.css';
+
+/* —————————————————————————————————————————— 
+   1) Remove o “card” extra no widget pai 
+—————————————————————————————————————————— */
+.widget.form-widget {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* —————————————————————————————————————————— 
+   2) Define o form como grid responsivo 
+—————————————————————————————————————————— */
+.ticket-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 36px 32px;            /* 36px entre linhas, 32px entre colunas */
+  max-width: 900px;
+  margin: 48px auto;
+  padding: 32px;
+  background: var(--cor-form);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* —————————————————————————————————————————— 
+   3) Campos sem margens: o grid faz o espaçamento 
+—————————————————————————————————————————— */
+.input-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0;                 /* antes era margin-top:36px */
+}
+
+/* Ícone à esquerda */
+.input-box i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3em;
+  color: var(--cor-letras);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Inputs, selects e textarea */
+.input-box input,
+.input-box select,
+.input-box textarea {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: none;
+  border-bottom: 2px solid var(--cor-letras);
+  border-radius: 6px 6px 0 0;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,188,235,0.04);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Foco */
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus {
+  border-bottom: 2.5px solid var(--cor-botao-hover);
+  box-shadow: 0 4px 16px rgba(0,188,235,0.10);
+}
+
+/* Select com fundo leve */
+.input-box select {
+  background-color: rgba(0,188,235,0.04);
+}
+
+/* Textarea mais alta */
+.input-box textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+/* Floating label */
+.input-box label,
+.input-box .static-label {
+  position: absolute;
+  left: 46px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--cor-form);
+  padding: 0 4px;
+  font-size: 1rem;
+  color: var(--cor-letras);
+  transition: top 0.3s, font-size 0.3s, color 0.3s;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label,
+.input-box textarea:focus + label,
+.input-box textarea:not(:placeholder-shown) + label,
+.input-box select:focus + .static-label,
+.input-box select:valid + .static-label {
+  top: -22px;
+  font-size: 0.95em;
+  color: var(--cor-botao-hover);
+  padding: 0 8px;
+}
+
+/* Option padrão escondido */
+.input-box select option[hidden] {
+  color: #aaa;
+}
+
+/* —————————————————————————————————————————— 
+   4) Textarea e botões ocupam 100% do grid 
+—————————————————————————————————————————— */
+/* Textarea */
+.input-box.textarea-box {
+  grid-column: 1 / -1;
+  align-items: flex-start;
+}
+
+.input-box.textarea-box i {
+  top: 18px;
+  left: 18px;
+  transform: none;
+}
+
+.input-box.textarea-box textarea {
+  padding-top: 32px;
+  padding-left: 46px !important;
+}
+
+.input-box.textarea-box label {
+  top: 18px;
+  left: 46px;
+}
+
+/* Botões */
+.button-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.button-container button {
+  flex: 1 1 160px;
+  max-width: 240px;
+  padding: 12px;
+  background: var(--cor-botao);
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: rgb(38, 57, 77) 0 20px 30px -10px;
+}
+
+.button-container button:hover {
+  background: var(--cor-botao-hover);
+  box-shadow:
+    0 0 10px rgba(0, 223, 255, 0.5),
+    0 0 20px rgba(0, 223, 255, 0.5);
+}
+
+/* —————————————————————————————————————————— 
+   5) Ajustes para mobile 
+—————————————————————————————————————————— */
+@media (max-width: 600px) {
+  .ticket-form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 2rem auto;
+  }
+  .input-box i {
+    left: 10px;
+  }
+  .input-box input,
+  .input-box select,
+  .input-box textarea {
+    padding-left: 36px !important;
+  }
+  .input-box label,
+  .input-box .static-label {
+    left: 36px !important;
+  }
+}

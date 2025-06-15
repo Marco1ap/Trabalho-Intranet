@@ -1,0 +1,31 @@
+/* Cores, variáveis globais, resets e fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  color: var(--cor-letras);
+}
+
+:root {
+  --cor-fundo: #05161A;
+  --cor-form: rgba(7, 46, 51, 0.2);
+  --cor-letras: #00bceb;
+  --cor-links: #0F969C;
+  --cor-botao: #294D61;
+  --cor-botao-hover: #6DA5C0;
+  --radius: 10px;
+  --padding-base: 30px;
+}
+
+body {
+  background: var(--cor-fundo);
+  display: flex;
+  min-height: 85vh;
+  justify-content: center;
+  align-items: center;
+}

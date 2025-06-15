@@ -29,16 +29,6 @@
         </section>
 
         <section class="widgets">
-          <div class="widget news-widget">
-            <h3>Últimas Notícias</h3>
-            <ul>
-              <li><a href="#">Manutenção no servidor dia 25/06</a></li>
-              <li><a href="#">Reunião geral na proxima segunda-feira, às
-                  9h</a></li>
-              <li><a href="#">Nova política de segurança de dados</a></li>
-            </ul>
-          </div>
-
           <div class="widget events-widget">
             <h3>Estatísticas de Tickets</h3>
             <ul>
@@ -47,25 +37,22 @@
               <li><strong>Fechados:</strong> <a href="#">30</a></li>
             </ul>
           </div>
-
-          <div class="widget apps-widget">
-            <h3>Links Úteis</h3>
-            <div class="app-links">
-              <ul>
-                <li><a href="#">Manual de Uso da Intranet</a></li>
-                <li><a href="#">Política de Segurança</a></li>
-                <li><a href="#">FAQ de TI</a></li>
-              </ul>
-            </div>
-          </div>
         </section>
       </main>
     </div>
 
     <script src="../components/SideBar.js"></script>
     <script src="../components/NavBar.js"></script>
-    <script src="app.js"></script>
-
+    <script>
+    // Atualiza estatísticas de tickets dinamicamente
+    fetch('../backend/stats.php')
+      .then(r => r.json())
+      .then(stats => {
+        document.querySelector('.events-widget li:nth-child(1) a').textContent = stats.abertos;
+        document.querySelector('.events-widget li:nth-child(2) a').textContent = stats.andamento;
+        document.querySelector('.events-widget li:nth-child(3) a').textContent = stats.fechados;
+      });
+    </script>
   </body>
 
 </html>

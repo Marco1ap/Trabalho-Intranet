@@ -1,0 +1,52 @@
+/* Estilos de botões modernos, ações, modais, feedback visual, etc */
+@import './base.css';
+
+.modern-btn {
+  /* agora igual ao botão do .button-container no seu form */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 160px;
+  max-width: 240px;
+  padding: 12px;
+  background: var(--cor-botao);
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: rgb(38, 57, 77) 0 20px 30px -10px;
+}
+
+.modern-btn i {
+  font-size: 1.2em;
+}
+
+.modern-btn:hover {
+  background: var(--cor-botao-hover);
+  box-shadow:
+    0 0 10px rgba(0, 223, 255, 0.5),
+    0 0 20px rgba(0, 223, 255, 0.5);
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.button-container button {
+  width: auto;
+  padding: 10px 24px;
+  font-size: 1rem;
+}
+
+.ticket-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* ...outros estilos de botões, feedback, etc... */

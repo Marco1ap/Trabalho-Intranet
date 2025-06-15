@@ -26,4 +26,12 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = 'login.html';
     });
   }
+
+  // Redireciona automaticamente de .html para .php
+  if (window.location.pathname.endsWith('enviar_ticket.html')) {
+    window.location.replace('enviar_ticket.php');
+  }
+  if (window.location.pathname.endsWith('tickets.html')) {
+    window.location.replace('tickets.php');
+  }
 });
