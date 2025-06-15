@@ -101,6 +101,49 @@ pages/
 * Extensão PDO SQLite habilitada
 * Navegador moderno
 
+#### Como habilitar a extensão PDO SQLite
+
+* **No Windows (php.ini):**
+  1. Localize o arquivo `php.ini` (ex: `C:\xampp\php\php.ini` ou na pasta do seu PHP).
+  2. Abra o arquivo em um editor de texto.
+  3. Procure pelas linhas:
+
+     ```ini
+     ;extension=pdo_sqlite
+     ;extension=sqlite3
+     ```
+
+  4. Remova o ponto e vírgula (`;`) do início dessas linhas, ficando assim:
+
+     ```ini
+     extension=pdo_sqlite
+     extension=sqlite3
+     ```
+
+  5. Salve o arquivo e reinicie o servidor web (Apache, Nginx ou PHP embutido).
+
+* **No Linux:**
+  * Se estiver usando um gerenciador de pacotes:
+
+    ```bash
+    sudo apt-get install php-sqlite3
+    sudo service apache2 restart # ou sudo systemctl restart apache2
+    ```
+
+  * Ou edite o `php.ini` conforme instruções acima.
+
+* **No XAMPP:**
+  * O SQLite já vem incluso, basta habilitar as extensões no `php.ini` como mostrado acima e reiniciar o Apache pelo painel do XAMPP.
+
+* **Verifique se está habilitado:**
+  * Crie um arquivo `info.php` com o conteúdo:
+
+    ```php
+    <?php phpinfo();
+    ```
+
+  * Acesse no navegador e procure por "pdo_sqlite" e "sqlite3" na página.
+
 ### 2. Instalação e Execução
 
 1. Clone ou extraia o projeto em seu servidor local (ex: XAMPP, WAMP, PHP embutido).
