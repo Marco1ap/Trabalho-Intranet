@@ -6,7 +6,7 @@ try {
     $pdo = new PDO('sqlite:' . $db_path);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    // Cria a tabela se não existir
+    // Cria a tabela de tickets se não existir
     $pdo->exec('CREATE TABLE IF NOT EXISTS tickets (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT,
@@ -15,6 +15,13 @@ try {
         titulo TEXT NOT NULL,
         descricao TEXT,
         status TEXT NOT NULL
+    )');
+    // Cria a tabela de usuários se não existir
+    $pdo->exec('CREATE TABLE IF NOT EXISTS usuarios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        email TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL
     )');
 } catch (PDOException $e) {
     http_response_code(500);

@@ -7,7 +7,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        // Listar tickets
+        // Listar tickets (Lista dinâmica, Estrutura de repetição e decisão)
         $status = isset($_GET['status']) ? $_GET['status'] : null;
         $sql = 'SELECT * FROM tickets';
         if ($status && $status !== 'Todos') {
@@ -17,7 +17,18 @@ switch ($method) {
         } else {
             $stmt = $pdo->query($sql);
         }
-        $tickets = $stmt->fetchAll();
+        $tickets = [];
+        while ($row = $stmt->fetch()) { // Estrutura de repetição (while)
+            // Estrutura de decisão (if / else if / else)
+            if ($row['status'] === 'Pendente') {
+                $row['status_label'] = 'Aguardando';
+            } else if ($row['status'] === 'Em Andamento') {
+                $row['status_label'] = 'Processando';
+            } else {
+                $row['status_label'] = 'Finalizado';
+            }
+            $tickets[] = $row; // Lista dinâmica
+        }
         echo json_encode($tickets);
         break;
     case 'POST':
