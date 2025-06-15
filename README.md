@@ -4,9 +4,19 @@ Este projeto é um sistema de Intranet fictício da empresa **Zylo**, desenvolvi
 
 ---
 
-## 🧠 Funcionalidades
+## 📑 Sumário
+- [Funcionalidades](#funcionalidades)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Documentação Técnica](#documentação-técnica)
+- [Manual de Utilização](#manual-de-utilização)
+- [Equipe](#equipe)
+- [Licença](#licença)
 
-- 🔐 Sistema de login e registro (front-end)
+---
+
+## Funcionalidades
+
+- 🔐 Sistema de login e registro de usuários (autenticação real)
 - 🎫 Cadastro de tickets de atendimento
 - 📋 Listagem de todos os tickets
 - ✏️ Edição de status e categoria dos tickets
@@ -21,17 +31,19 @@ Este projeto é um sistema de Intranet fictício da empresa **Zylo**, desenvolvi
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 backend/
-  db.php           # Conexão e inicialização do banco SQLite
+  db.php           # Conexão e inicialização do banco SQLite (tickets e usuários)
   tickets.php      # Endpoints CRUD para tickets (API)
   stats.php        # Endpoint para estatísticas de tickets
+  login.php        # Endpoint de login de usuário (autenticação)
+  register.php     # Endpoint de registro de usuário
 css/
   base.css         # Variáveis, resets e temas
   layout.css       # Layout geral, containers, widgets
-  form.css         # Estilos de formulários e floating label
+  form.css         # Estilos de formulários, login, registro e floating label
   buttons.css      # Botões e ações
   modal.css        # Modais e overlays
   styles.css       # Importa todos os módulos
@@ -42,8 +54,8 @@ components/
   NavBar.js        # Componente de navegação superior
   SideBar.js       # Componente de menu lateral
 pages/
-  login.html       # Tela de login
-  registro.html    # Tela de registro
+  login.html       # Tela de login (autenticação)
+  registro.html    # Tela de registro de usuário
   menu.php         # Dashboard inicial
   tickets.php      # Listagem e edição de tickets
   enviar_ticket.php# Formulário de novo ticket
@@ -51,31 +63,34 @@ pages/
 
 ---
 
-## ⚙️ Documentação Técnica
+## Documentação Técnica
 
 ### Backend (PHP + SQLite)
 - O backend expõe endpoints RESTful em `backend/tickets.php` para CRUD de tickets.
 - O banco de dados é SQLite, criado automaticamente em `backend/intranet.sqlite`.
-- O endpoint `GET` implementa:
-  - **Lista dinâmica**: array `$tickets[]` preenchido dinamicamente.
-  - **Estrutura de repetição**: `while ($row = $stmt->fetch())` para percorrer os tickets.
-  - **Estrutura de decisão**: `if / else if / else` para rotular status.
-- O endpoint `stats.php` retorna estatísticas de tickets para o dashboard.
+- Tabelas:
+  - `tickets`: chamados de atendimento
+  - `usuarios`: autenticação de usuários (login/registro)
+- Endpoints:
+  - `tickets.php`: CRUD de tickets
+  - `stats.php`: estatísticas de tickets
+  - `login.php`: login de usuário (POST JSON: email/username + senha)
+  - `register.php`: registro de usuário (POST JSON: username, email, senha)
+- Estruturas didáticas:
+  - **Lista dinâmica**: array `$tickets[]` preenchido no backend
+  - **Repetição**: `while` para percorrer resultados do banco
+  - **Decisão**: `if / else if / else` para status customizado
 
 ### Frontend
-- O layout é responsivo, com tema escuro e componentes reutilizáveis (NavBar, SideBar).
-- O formulário de novo ticket utiliza floating label, ícones e feedback visual moderno.
-- A listagem de tickets permite editar (modal) e excluir tickets, com atualização dinâmica.
-- As estatísticas do menu são atualizadas automaticamente via fetch do backend.
-
-### Estruturas Didáticas
-- **Lista dinâmica**: array PHP `$tickets[]` preenchido no backend.
-- **Repetição**: `while` para percorrer resultados do banco.
-- **Decisão**: `if / else if / else` para status customizado.
+- Layout responsivo, tema escuro, componentes reutilizáveis (NavBar, SideBar).
+- Formulários de login, registro e tickets usam floating label, ícones e feedback visual moderno.
+- Listagem de tickets permite editar (modal) e excluir tickets, com atualização dinâmica.
+- Estatísticas do menu são atualizadas automaticamente via fetch do backend.
+- Autenticação real: login e registro comunicam com backend, exibem erros e redirecionam.
 
 ---
 
-## 📝 Manual de Utilização
+## Manual de Utilização
 
 ### 1. Requisitos
 - PHP 7.4+
@@ -92,24 +107,25 @@ pages/
 4. Acesse `http://localhost:8080/pages/login.html` no navegador.
 
 ### 3. Fluxo de Uso
-- **Login:** Acesse com qualquer usuário fictício (não há autenticação real).
+- **Registro:** Crie uma conta em "Registrar-se".
+- **Login:** Acesse com seu usuário ou email e senha cadastrados.
 - **Menu:** Veja estatísticas dinâmicas de tickets.
 - **Novo Ticket:** Clique em "Novo Ticket" no menu lateral, preencha o formulário e envie.
 - **Listar/Editar/Excluir:** Acesse "Meus Tickets" para visualizar, editar (modal) ou excluir tickets.
 - **Dashboard:** Estatísticas são atualizadas automaticamente.
 
 ### 4. Observações
-- O sistema não implementa autenticação real (apenas front-end).
+- O sistema implementa autenticação real (login/registro).
 - Não há upload de arquivos/anexos.
 - O banco SQLite é criado e gerenciado automaticamente.
 - O código é modularizado para fácil manutenção.
 
 ---
 
-## 👨‍💻 Equipe
-- [Seu Nome Aqui]
+## Equipe
+- 202306074043 - Samuel Guilerme Ferreira Dias
 
 ---
 
-## 📄 Licença
+## Licença
 MIT
