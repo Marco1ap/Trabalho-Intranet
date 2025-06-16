@@ -176,7 +176,8 @@ pages/
 
 ## Equipe
 
-* 202306074043 - Samuel Guilerme Ferreira Dias
+* 202306074043 - Samuel Guilerme Ferreira Dias]
+*202402893289 - Kelvin Crispiniano Silva Rabib Azevedo
 
 ---
 
