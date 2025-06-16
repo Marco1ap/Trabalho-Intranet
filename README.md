@@ -176,8 +176,11 @@ pages/
 
 ## Equipe
 
-* 202306074043 - Samuel Guilerme Ferreira Dias]
-*202402893289 - Kelvin Crispiniano Silva Rabib Azevedo
+* 202306074043 - Samuel Guilerme Ferreira Dias
+* 202308667203 - Isabela Sens
+* 202402893289 - Kelvin Rabib
+* 202303374445 - Thompson M Lima
+* 202303300115- Marco Antônio
 
 ---
 
