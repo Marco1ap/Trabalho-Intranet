@@ -180,7 +180,9 @@ pages/
 * 202308667203 - Isabela Sens
 * 202402893289 - Kelvin Rabib
 * 202303374445 - Thompson M Lima
-* 202303300115- Marco Antônio
+* 202303300115 - Marco Antônio
+* 202409029192 - Douglas da Conceição Vera
+
 
 ---
 
